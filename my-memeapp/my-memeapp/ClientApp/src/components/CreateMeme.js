@@ -124,7 +124,9 @@ export class CreateMeme extends Component {
                     <div className='col-sm'>
                     <h5 className='messageStyle'>Note: please upload two images by clicking on "choose files" button after uploading 
                         two images only memes get displayed 
-                        <br/> After images loaded completely then please add text in the textboxes above which shows text  on the meme then click on  "Download" button </h5>
+                        <br/> After images loaded completely then please add text in the textboxes above which shows text  on the meme then click on  "Download" button 
+           </h5>
+                    <h5 className='fileformatStyle'>    please upload only .jpg,.png images only</h5>
                     </div>
                 </div>
                 </div>
