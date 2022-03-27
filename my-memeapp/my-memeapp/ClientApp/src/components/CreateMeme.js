@@ -19,6 +19,12 @@ export class CreateMeme extends Component {
         this.imageRef = React.createRef(); 
     }
 
+    componentDidMount(){
+        const canvas = this.canvasRef.current;
+        const context = canvas.getContext('2d');  
+        context.fillStyle = "black";  
+        context.fillRect(0, 0, 600, 400);
+    }
 
     uploadimages(event){
         if (window.File && window.FileList && window.FileReader) {
@@ -28,7 +34,7 @@ export class CreateMeme extends Component {
                filesarray.push(files)
                const canvas = this.canvasRef.current;
                const context = canvas.getContext('2d');  
-                   if(this.state.filesarray.length==2)
+                   if(this.state.filesarray.length==1) //loading first image in canvas
                    {
                    for(var i=0;i<this.state.filesarray.length+1;i++)              
                     var img = new Image();  
@@ -39,7 +45,9 @@ export class CreateMeme extends Component {
                       context.fillRect(50, 0, 250, 50);
                       context.fillRect(50,350,250,50)                 
                    };
-
+                }
+                   if(this.state.filesarray.length==2) //loading second image in canvas
+                   {
                    var img2 = new Image();  
                      img2.src = URL.createObjectURL(this.state.filesarray[1])
                     img2.onload = () => {
@@ -62,15 +70,15 @@ export class CreateMeme extends Component {
         const canvas = this.canvasRef.current;
         const context = canvas.getContext('2d');   
         context.fillStyle = "black";
-        context.font = "bold 40px Arial";
+        context.font = "bold 20px Arial";
         if(this.state.topLeft!=undefined)
-        context.fillText(this.state.topLeft, 50, 50,250,50)
+        context.fillText(this.state.topLeft, 50, 30,250,50)  //fillText(text,x,y,width,height) x distance from left,y distance from top
         if(this.state.topRight!=undefined)
-        context.fillText(this.state.topRight,250,50,250,50)
+        context.fillText(this.state.topRight,250,30,250,50)
         if(this.state.bottomLeft!=undefined)
-        context.fillText(this.state.bottomLeft, 50, 400,250,0)
+        context.fillText(this.state.bottomLeft, 50, 380,250,0)
         if(this.state.bottomRight!=undefined)
-        context.fillText(this.state.bottomRight,250,400,250,50)   
+        context.fillText(this.state.bottomRight,250,380,250,50)   
     }
 
 
@@ -83,9 +91,6 @@ export class CreateMeme extends Component {
        link.click();
     }
 
-    handlebelowChange(value){
-        this.setState({below:value})
-    }
     render() {
         return (
             <div className="float-container" onSubmit={this.handleSubmit}>
