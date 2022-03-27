@@ -1,0 +1,54 @@
+.float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.float-child {
+    width: 50%;
+    float: left; 
+}  
+
+.imageSize{
+    width: 500px;
+}
+
+.textStyle{
+    position: 'absolute';
+    color: 'white';
+     top: '5%'; 
+     left: '50%';
+      transform:'translateX(-50%)'
+}
+
+
+.container {
+    position: relative;
+  }
+  
+  /* Bottom right text */
+  .text-block {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  body{ background-color: ivory; }
+  canvas{border:1px solid}
+
+
+  #image_text {
+    display: inline-block;
+    border: 1px solid #000;
+}
+
+.canvasStyle{
+    background-color:black
+}
+
+.messageStyle{
+    color:red
+}
